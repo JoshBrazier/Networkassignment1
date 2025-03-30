@@ -171,10 +171,12 @@ while True:
 
       # Get the response from the origin server
       # ~~~~ INSERT CODE ~~~~
+      response_data = b"".join(iter(lambda: originServerSocket.recv(BUFFER_SIZE), b""))
       # ~~~~ END CODE INSERT ~~~~
 
       # Send the response to the client
       # ~~~~ INSERT CODE ~~~~
+      clientSocket.sendall(response_data)
       # ~~~~ END CODE INSERT ~~~~
 
       # Create a new file in the cache for the requested file.
